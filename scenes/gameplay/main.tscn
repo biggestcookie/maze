@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck75iow1wecr7"]
+[gd_scene load_steps=8 format=3 uid="uid://ck75iow1wecr7"]
 
-[ext_resource type="Script" uid="uid://sb018rnldsfq" path="res://scenes/gameplay/ui/debug.gd" id="1_78rss"]
 [ext_resource type="Texture2D" uid="uid://wnf8wiv3y61l" path="res://icon.svg" id="1_tbd8m"]
 [ext_resource type="Script" uid="uid://qvi8ib4aj1q5" path="res://scenes/gameplay/actors/player.gd" id="2_psph8"]
 [ext_resource type="Script" uid="uid://dtwou8jq00mji" path="res://scenes/gameplay/actors/camera.gd" id="3_dyj7r"]
@@ -24,7 +23,7 @@ ambient_light_energy = 2.0
 [node name="Main" type="Node"]
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("follow_node")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 4, 0)
 projection = 1
 size = 10.0
 script = ExtResource("3_dyj7r")
@@ -33,6 +32,8 @@ follow_node = NodePath("../Player")
 [node name="Player" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 continuous_cd = true
+linear_damp = 3.0
+angular_damp = 1.5
 script = ExtResource("2_psph8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
@@ -55,9 +56,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_78rss")
 
 [node name="Label" type="Label" parent="UI"]
+visible = false
 layout_mode = 1
 offset_right = 102.0
 offset_bottom = 99.0
