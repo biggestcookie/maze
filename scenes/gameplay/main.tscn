@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ck75iow1wecr7"]
+[gd_scene load_steps=9 format=3 uid="uid://ck75iow1wecr7"]
 
 [ext_resource type="Texture2D" uid="uid://wnf8wiv3y61l" path="res://icon.svg" id="1_tbd8m"]
 [ext_resource type="Script" uid="uid://qvi8ib4aj1q5" path="res://scenes/gameplay/actors/player.gd" id="2_psph8"]
 [ext_resource type="Script" uid="uid://dtwou8jq00mji" path="res://scenes/gameplay/actors/camera.gd" id="3_dyj7r"]
+[ext_resource type="Script" uid="uid://sb018rnldsfq" path="res://scenes/gameplay/ui/debug.gd" id="4_kdkr1"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ns5hs"]
 
@@ -56,6 +57,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("4_kdkr1")
 
 [node name="Label" type="Label" parent="UI"]
 layout_mode = 1
