@@ -11,7 +11,7 @@ albedo_color = Color(0.48, 0.48, 0.48, 1)
 albedo_texture = ExtResource("1_tbd8m")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ij1na"]
-font_size = 96
+font_size = 48
 
 [sub_resource type="Environment" id="Environment_hhg4g"]
 background_mode = 1
@@ -58,13 +58,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="UI"]
-visible = false
 layout_mode = 1
-offset_right = 102.0
-offset_bottom = 99.0
+offset_right = 1080.0
+offset_bottom = 132.0
 size_flags_horizontal = 4
-text = "0.0"
+text = "0.00x 0.00y 0.00z"
 label_settings = SubResource("LabelSettings_ij1na")
+autowrap_mode = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hhg4g")
