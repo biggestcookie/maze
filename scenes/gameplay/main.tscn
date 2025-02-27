@@ -67,6 +67,16 @@ text = "0.00x 0.00y 0.00z"
 label_settings = SubResource("LabelSettings_ij1na")
 autowrap_mode = 3
 
+[node name="Label2" type="Label" parent="UI"]
+layout_mode = 1
+offset_top = 120.0
+offset_right = 1080.0
+offset_bottom = 252.0
+size_flags_horizontal = 4
+text = "Length: 0"
+label_settings = SubResource("LabelSettings_ij1na")
+autowrap_mode = 3
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hhg4g")
 

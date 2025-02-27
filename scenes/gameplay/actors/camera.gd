@@ -13,6 +13,7 @@ func _ready() -> void:
 	)
 
 func _physics_process(delta: float) -> void:
+	# Move camera position
 	position.x = follow_node.position.x
 	position.y = move_toward(
 		position.y,
@@ -20,3 +21,5 @@ func _physics_process(delta: float) -> void:
 		delta * follow_speed
 	)
 	position.z = follow_node.position.z
+
+	# Rotate camera with gyroscope
