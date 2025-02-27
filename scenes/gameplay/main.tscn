@@ -24,7 +24,8 @@ ambient_light_energy = 2.0
 [node name="Main" type="Node"]
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("follow_node")]
-transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 10, 0)
+transform = Transform3D(-1, 1.50996e-07, 6.60024e-15, 0, -4.37114e-08, 1, 1.50996e-07, 1, 4.37114e-08, 0, 10, 0)
+rotation_edit_mode = 2
 size = 10.0
 script = ExtResource("3_dyj7r")
 follow_node = NodePath("../Player")

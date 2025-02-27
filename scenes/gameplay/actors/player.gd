@@ -7,11 +7,16 @@ var input := Vector2.ZERO
 
 func _process(_delta: float) -> void:
 	if OS.has_feature("mobile"):
-		input.x = Input.get_gravity().normalized().x * -1
-		input.y = Input.get_gravity().normalized().y
+		var normalized_accel := Input.get_gravity().normalized()
+		input = Vector2(
+			normalized_accel.x * -1,
+			normalized_accel.y
+		)
 	else:
-		input.x = Input.get_axis("move_right", "move_left")
-		input.y = Input.get_axis("move_down", "move_up")
+		input = Vector2(
+			Input.get_axis("move_right", "move_left"),
+			Input.get_axis("move_down", "move_up")
+		)
 
 
 func _physics_process(_delta: float) -> void:
