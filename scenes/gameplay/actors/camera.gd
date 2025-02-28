@@ -2,7 +2,7 @@ extends Camera3D
 
 @export var follow_node: Node3D
 
-const follow_speed := 2
+const follow_speed := 5
 const follow_height_offset := 9.5
 const rotate_amount = 0.2
 

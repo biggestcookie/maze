@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://two30d6yxecp"
-path.s3tc="res://.godot/imported/x_0.png-3c989655215e35733f215e90815314d3.s3tc.ctex"
-path.etc2="res://.godot/imported/x_0.png-3c989655215e35733f215e90815314d3.etc2.ctex"
+uid="uid://dq635gw5a41l8"
+path.s3tc="res://.godot/imported/Level_0.png-d3dfadaaad06b016d68322725c83403d.s3tc.ctex"
+path.etc2="res://.godot/imported/Level_0.png-d3dfadaaad06b016d68322725c83403d.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/gameplay/x_0.png"
-dest_files=["res://.godot/imported/x_0.png-3c989655215e35733f215e90815314d3.s3tc.ctex", "res://.godot/imported/x_0.png-3c989655215e35733f215e90815314d3.etc2.ctex"]
+source_file="res://scenes/gameplay/Level_0.png"
+dest_files=["res://.godot/imported/Level_0.png-d3dfadaaad06b016d68322725c83403d.s3tc.ctex", "res://.godot/imported/Level_0.png-d3dfadaaad06b016d68322725c83403d.etc2.ctex"]
 
 [params]
 

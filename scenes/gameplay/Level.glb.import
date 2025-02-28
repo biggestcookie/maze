@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://biy1oxqrkluvm"
-path="res://.godot/imported/flag-green.glb-89c8e8ed90dc6ff8d123e20cfc2be1f6.scn"
+uid="uid://dwkyhv533mcb1"
+path="res://.godot/imported/Level.glb-b87887288d2f73ca6be84fb038140f36.scn"
 
 [deps]
 
-source_file="res://scenes/gameplay/level/flag-green.glb"
-dest_files=["res://.godot/imported/flag-green.glb-89c8e8ed90dc6ff8d123e20cfc2be1f6.scn"]
+source_file="res://scenes/gameplay/Level.glb"
+dest_files=["res://.godot/imported/Level.glb-b87887288d2f73ca6be84fb038140f36.scn"]
 
 [params]
 

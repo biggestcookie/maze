@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bgj2c53bb2olc"
-path="res://.godot/imported/walls-to-open.glb-9db45c756d603937bbae185e4c72ccb1.scn"
+uid="uid://cdi1x8bafhmst"
+path="res://.godot/imported/test_track_model.glb-39f026db068bf1244da222e948196273.scn"
 
 [deps]
 
-source_file="res://scenes/gameplay/level/walls-to-open.glb"
-dest_files=["res://.godot/imported/walls-to-open.glb-9db45c756d603937bbae185e4c72ccb1.scn"]
+source_file="res://scenes/gameplay/level/test_track_model.glb"
+dest_files=["res://.godot/imported/test_track_model.glb-39f026db068bf1244da222e948196273.scn"]
 
 [params]
 

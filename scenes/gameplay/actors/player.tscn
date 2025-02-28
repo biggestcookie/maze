@@ -3,20 +3,21 @@
 [ext_resource type="Script" uid="uid://qvi8ib4aj1q5" path="res://scenes/gameplay/actors/player.gd" id="1_phuyj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ns5hs"]
-radius = 0.25
+margin = 0.01
+radius = 0.2
 
 [node name="Player" type="RigidBody3D"]
-gravity_scale = 2.0
+gravity_scale = 10.0
 continuous_cd = true
-linear_damp = 3.0
-angular_damp = 1.5
+linear_damp = 2.0
+angular_damp = 1.0
 script = ExtResource("1_phuyj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_ns5hs")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-radius = 0.25
+radius = 0.2
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 collide_with_areas = true
