@@ -1,7 +1,11 @@
 extends Node
 
-@onready var gravity_label: Label = $Label
-@onready var label_2: Label = $Label2
+@onready var gravity_label: Label = $UI/Label
+@onready var label_2: Label = $UI/Label2
+@onready var label_3: Label = $UI/Label3
+
+@onready var camera: Camera3D = $Camera3D
+@onready var player: Player = $Player
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -13,21 +17,9 @@ func _process(_delta: float) -> void:
 		input.x,
 		input.y,
 	]
-	var normalized_accel := Input.get_gravity().normalized()
-	var tilt_rotation := Basis(
-		Vector3(0, 0, 1),
-		normalized_accel.x * 0.1
-	) * Basis(
-		Vector3(1, 0, 0),
-		normalized_accel.y * 0.1
-	)
-	var cam_rotation := (
-		Basis(
-			Vector3(1, 0, 0),
-			deg_to_rad(-90)
-		) * Basis(
-			Vector3(0, 1, 0),
-			deg_to_rad(-180)
-		) * tilt_rotation
-	).get_euler()
-	label_2.text = "Camera rotation: %.1fx %.1fy %.1fz" % [cam_rotation]
+	label_3.text = "Colliding: %s" % [player.ground_ray.is_colliding()]
+	# label_2.text = "Camera rotation: %.1fx %.1fy %.1fz" % [
+	# 	camera.rotation_degrees.x,
+	# 	camera.rotation_degrees.y,
+	# 	camera.rotation_degrees.z,
+	# ]

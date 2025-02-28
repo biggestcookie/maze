@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ix8c5xrn6ios"]
+
+[ext_resource type="Script" uid="uid://qvi8ib4aj1q5" path="res://scenes/gameplay/actors/player.gd" id="1_phuyj"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ns5hs"]
+
+[node name="Player" type="RigidBody3D"]
+continuous_cd = true
+linear_damp = 3.0
+angular_damp = 1.5
+script = ExtResource("1_phuyj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ns5hs")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="CSGSphere3D"]
+collide_with_areas = true
+debug_shape_custom_color = Color(1, 0, 0, 1)

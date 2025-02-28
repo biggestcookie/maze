@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck75iow1wecr7"]
+[gd_scene load_steps=8 format=3 uid="uid://ck75iow1wecr7"]
 
 [ext_resource type="Texture2D" uid="uid://wnf8wiv3y61l" path="res://icon.svg" id="1_tbd8m"]
-[ext_resource type="Script" uid="uid://qvi8ib4aj1q5" path="res://scenes/gameplay/actors/player.gd" id="2_psph8"]
 [ext_resource type="Script" uid="uid://dtwou8jq00mji" path="res://scenes/gameplay/actors/camera.gd" id="3_dyj7r"]
+[ext_resource type="PackedScene" uid="uid://ix8c5xrn6ios" path="res://scenes/gameplay/actors/player.tscn" id="3_kdkr1"]
 [ext_resource type="Script" uid="uid://sb018rnldsfq" path="res://scenes/gameplay/ui/debug.gd" id="4_kdkr1"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_ns5hs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ksgac"]
 albedo_color = Color(0.48, 0.48, 0.48, 1)
@@ -22,24 +20,17 @@ ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 2.0
 
 [node name="Main" type="Node"]
+script = ExtResource("4_kdkr1")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("follow_node")]
-transform = Transform3D(-1, 1.50996e-07, 6.60024e-15, 0, -4.37114e-08, 1, 1.50996e-07, 1, 4.37114e-08, 0, 10, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 0)
 size = 10.0
 script = ExtResource("3_dyj7r")
 follow_node = NodePath("../Player")
 
 [node name="Player" type="RigidBody3D" parent="."]
+[node name="Player" parent="." instance=ExtResource("3_kdkr1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-continuous_cd = true
-linear_damp = 3.0
-angular_damp = 1.5
-script = ExtResource("2_psph8")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-shape = SubResource("SphereShape3D_ns5hs")
-
-[node name="CSGSphere3D" type="CSGSphere3D" parent="Player"]
 
 [node name="Level" type="Node3D" parent="."]
 
@@ -56,24 +47,35 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("4_kdkr1")
-
-[node name="Label" type="Label" parent="UI"]
-layout_mode = 1
-offset_right = 1080.0
-offset_bottom = 132.0
-size_flags_horizontal = 4
-text = "Accelerometer: 0.00x 0.00y"
-label_settings = SubResource("LabelSettings_ij1na")
-autowrap_mode = 3
 
 [node name="Label2" type="Label" parent="UI"]
+visible = false
 layout_mode = 1
 offset_top = 120.0
 offset_right = 1080.0
 offset_bottom = 252.0
 size_flags_horizontal = 4
 text = "Camera rotation: 0.0x 0.0y 0.0z"
+label_settings = SubResource("LabelSettings_ij1na")
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="UI/Label2"]
+layout_mode = 1
+offset_top = -120.0
+offset_right = 1080.0
+offset_bottom = 12.0
+size_flags_horizontal = 4
+text = "Accelerometer: 0.00x 0.00y"
+label_settings = SubResource("LabelSettings_ij1na")
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="UI"]
+layout_mode = 1
+offset_top = 120.0
+offset_right = 1080.0
+offset_bottom = 252.0
+size_flags_horizontal = 4
+text = "Colliding: "
 label_settings = SubResource("LabelSettings_ij1na")
 autowrap_mode = 3
 
