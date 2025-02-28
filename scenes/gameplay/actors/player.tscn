@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://qvi8ib4aj1q5" path="res://scenes/gameplay/actors/player.gd" id="1_phuyj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ns5hs"]
+radius = 0.25
 
 [node name="Player" type="RigidBody3D"]
+gravity_scale = 2.0
 continuous_cd = true
 linear_damp = 3.0
 angular_damp = 1.5
@@ -14,7 +16,8 @@ script = ExtResource("1_phuyj")
 shape = SubResource("SphereShape3D_ns5hs")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+radius = 0.25
 
-[node name="RayCast3D" type="RayCast3D" parent="CSGSphere3D"]
+[node name="RayCast3D" type="RayCast3D" parent="."]
 collide_with_areas = true
 debug_shape_custom_color = Color(1, 0, 0, 1)

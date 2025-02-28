@@ -1,7 +1,7 @@
 class_name Player
 extends RigidBody3D
 
-@onready var ground_ray: RayCast3D = $CSGSphere3D/RayCast3D
+@onready var ground_ray: RayCast3D = $RayCast3D
 
 const force_strength := 10
 
@@ -16,8 +16,8 @@ func _process(_delta: float) -> void:
 		)
 	else:
 		input = Vector2(
-			Input.get_axis("move_right", "move_left"),
-			Input.get_axis("move_down", "move_up")
+			Input.get_axis("move_left", "move_right"),
+			Input.get_axis("move_up", "move_down")
 		)
 
 func _physics_process(_delta: float) -> void:
@@ -28,8 +28,10 @@ func _physics_process(_delta: float) -> void:
 			else Vector2.ZERO
 		)
 	else:
-		input_clipped *= .75
+		input_clipped *= .9
 	
+	# Reset raycast rotation, keeping position
+	ground_ray.global_rotation = Vector3.ZERO
 	if ground_ray.is_colliding():
 		apply_central_force(
 			Vector3(
@@ -38,3 +40,5 @@ func _physics_process(_delta: float) -> void:
 				input_clipped.y
 			) * force_strength
 		)
+	# ground_ray.position = position
+	# ground_ray.origin = global_transform.origin

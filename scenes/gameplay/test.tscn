@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://c02mk2lxy8rr0"]
+
+[ext_resource type="Script" uid="uid://sb018rnldsfq" path="res://scenes/gameplay/ui/debug.gd" id="1_cd4c7"]
+[ext_resource type="Script" uid="uid://dtwou8jq00mji" path="res://scenes/gameplay/actors/camera.gd" id="2_07pah"]
+[ext_resource type="Texture2D" uid="uid://wnf8wiv3y61l" path="res://icon.svg" id="4_nbaa4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ksgac"]
+albedo_color = Color(0.48, 0.48, 0.48, 1)
+albedo_texture = ExtResource("4_nbaa4")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ij1na"]
+font_size = 48
+
+[sub_resource type="Environment" id="Environment_hhg4g"]
+background_mode = 1
+background_color = Color(0.481789, 0.481789, 0.481789, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 2.0
+
+[node name="Main" type="Node"]
+script = ExtResource("1_cd4c7")
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("follow_node")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 0)
+size = 10.0
+script = ExtResource("2_07pah")
+follow_node = NodePath("")
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(10, 1, 10)
+material = SubResource("StandardMaterial3D_ksgac")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 1
+offset_right = 1080.0
+offset_bottom = 132.0
+size_flags_horizontal = 4
+text = "Accelerometer: 0.00x 0.00y"
+label_settings = SubResource("LabelSettings_ij1na")
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="UI"]
+visible = false
+layout_mode = 1
+offset_top = 120.0
+offset_right = 1080.0
+offset_bottom = 252.0
+size_flags_horizontal = 4
+text = "Camera rotation: 0.0x 0.0y 0.0z"
+label_settings = SubResource("LabelSettings_ij1na")
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="UI"]
+layout_mode = 1
+offset_top = 120.0
+offset_right = 1080.0
+offset_bottom = 252.0
+size_flags_horizontal = 4
+text = "Colliding: "
+label_settings = SubResource("LabelSettings_ij1na")
+autowrap_mode = 3
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hhg4g")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.707107, 0.5, 0.5, 0, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 0, 0, 0)
