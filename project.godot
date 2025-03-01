@@ -13,7 +13,10 @@ config_version=5
 config/name="maze"
 run/main_scene="res://scenes/gameplay/main.tscn"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/fullsize=false
+boot_splash/image="uid://byw0bnodcjuc2"
+config/icon="uid://byw0bnodcjuc2"
 
 [debug]
 

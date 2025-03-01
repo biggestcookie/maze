@@ -9,6 +9,6 @@ func _ready() -> void:
 	win_area.body_entered.connect(on_win_body_entered)
 
 func on_win_body_entered(_body: Node3D) -> void:
-	player.paused = true
+	player.freeze = true
 	print("WIN!")
 	win_label.visible = true

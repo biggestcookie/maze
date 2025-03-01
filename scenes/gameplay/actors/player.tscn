@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://ix8c5xrn6ios"]
+[gd_scene load_steps=5 format=3 uid="uid://ix8c5xrn6ios"]
 
 [ext_resource type="Script" uid="uid://qvi8ib4aj1q5" path="res://scenes/gameplay/actors/player.gd" id="1_phuyj"]
+[ext_resource type="Texture2D" uid="uid://byw0bnodcjuc2" path="res://scenes/gameplay/actors/images.png" id="2_8edrw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_phuyj"]
 margin = 0.01
 radius = 0.2
 height = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mkku0"]
+albedo_texture = ExtResource("2_8edrw")
+uv1_scale = Vector3(2, 2, 2)
 
 [node name="Player" type="RigidBody3D"]
 continuous_cd = true
@@ -18,6 +23,7 @@ shape = SubResource("CapsuleShape3D_phuyj")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 radius = 0.2
+material = SubResource("StandardMaterial3D_mkku0")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 collide_with_areas = true
