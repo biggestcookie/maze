@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cdi1x8bafhmst"
-path="res://.godot/imported/test_track_model.glb-39f026db068bf1244da222e948196273.scn"
+uid="uid://gsogrtoaptx3"
+path="res://.godot/imported/level_2.glb-b0ff268e556f0dde167f178c5d08ee03.scn"
 
 [deps]
 
-source_file="res://scenes/gameplay/level/test_track_model.glb"
-dest_files=["res://.godot/imported/test_track_model.glb-39f026db068bf1244da222e948196273.scn"]
+source_file="res://scenes/gameplay/level/level_2.glb"
+dest_files=["res://.godot/imported/level_2.glb-b0ff268e556f0dde167f178c5d08ee03.scn"]
 
 [params]
 

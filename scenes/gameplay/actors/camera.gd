@@ -3,10 +3,12 @@ extends Camera3D
 @export var follow_node: Node3D
 
 const follow_speed := 5
-const follow_height_offset := 9.5
 const rotate_amount = 0.2
 
+var follow_height_offset: float
+
 func _ready() -> void:
+	follow_height_offset = position.y
 	position = Vector3(
 		follow_node.position.x,
 		follow_node.position.y + follow_height_offset,

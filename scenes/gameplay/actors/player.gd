@@ -12,7 +12,7 @@ func _process(_delta: float) -> void:
 		var normalized_accel := Input.get_gravity().normalized()
 		input = Vector2(
 			normalized_accel.x,
-			normalized_accel.y
+			normalized_accel.y * -1
 		)
 	else:
 		input = Vector2(
@@ -28,7 +28,7 @@ func _physics_process(_delta: float) -> void:
 			else Vector2.ZERO
 		)
 	else:
-		input_clipped *= .9
+		input_clipped *= .75
 	
 	# Reset raycast rotation, keeping position
 	ground_ray.global_rotation = Vector3.ZERO

@@ -7,10 +7,9 @@ margin = 0.01
 radius = 0.2
 
 [node name="Player" type="RigidBody3D"]
-gravity_scale = 10.0
 continuous_cd = true
-linear_damp = 2.0
-angular_damp = 1.0
+linear_damp = 3.0
+angular_damp = 1.5
 script = ExtResource("1_phuyj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
