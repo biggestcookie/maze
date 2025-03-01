@@ -3,10 +3,9 @@
 [ext_resource type="Script" uid="uid://qvi8ib4aj1q5" path="res://scenes/gameplay/actors/player.gd" id="1_phuyj"]
 [ext_resource type="Texture2D" uid="uid://byw0bnodcjuc2" path="res://scenes/gameplay/actors/images.png" id="2_8edrw"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_phuyj"]
-margin = 0.01
+[sub_resource type="SphereShape3D" id="SphereShape3D_8edrw"]
+margin = 0.1
 radius = 0.2
-height = 0.4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mkku0"]
 albedo_texture = ExtResource("2_8edrw")
@@ -14,12 +13,12 @@ uv1_scale = Vector3(2, 2, 2)
 
 [node name="Player" type="RigidBody3D"]
 continuous_cd = true
-linear_damp = 3.0
-angular_damp = 1.5
+linear_damp = 1.0
+angular_damp = 1.0
 script = ExtResource("1_phuyj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_phuyj")
+shape = SubResource("SphereShape3D_8edrw")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 radius = 0.2

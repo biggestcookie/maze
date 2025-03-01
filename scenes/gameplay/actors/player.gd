@@ -28,7 +28,7 @@ func _physics_process(_delta: float) -> void:
 			else Vector2.ZERO
 		)
 	else:
-		input_clipped *= .75
+		input_clipped *= .5
 	
 	# Reset raycast rotation, keeping position
 	ground_ray.global_rotation = Vector3.ZERO
