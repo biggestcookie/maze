@@ -1,13 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://ck75iow1wecr7"]
+[gd_scene load_steps=15 format=3 uid="uid://ck75iow1wecr7"]
 
+[ext_resource type="Script" uid="uid://dnqeu0msqtrj" path="res://scenes/gameplay/main.gd" id="1_tlw26"]
 [ext_resource type="Script" uid="uid://dtwou8jq00mji" path="res://scenes/gameplay/actors/camera.gd" id="3_dyj7r"]
 [ext_resource type="PackedScene" uid="uid://ix8c5xrn6ios" path="res://scenes/gameplay/actors/player.tscn" id="3_kdkr1"]
-[ext_resource type="Script" uid="uid://sb018rnldsfq" path="res://scenes/gameplay/ui/debug.gd" id="4_kdkr1"]
 [ext_resource type="PackedScene" uid="uid://hl8pdu3od2ge" path="res://scenes/gameplay/level/level_1.tscn" id="4_n672w"]
 [ext_resource type="PackedScene" uid="uid://14gae4ydlmwu" path="res://scenes/gameplay/level/level_2.tscn" id="5_n672w"]
+[ext_resource type="PackedScene" uid="uid://ce22mcywn878g" path="res://scenes/gameplay/level/level_3.tscn" id="6_xsaao"]
+[ext_resource type="PackedScene" uid="uid://d37x1q16giwee" path="res://scenes/gameplay/level/flag-green.glb" id="7_aurnk"]
+[ext_resource type="FontFile" uid="uid://d2elivqc80jts" path="res://scenes/gameplay/ui/DynaPuff-Medium.ttf" id="8_tlw26"]
+[ext_resource type="Texture2D" uid="uid://cn55wpo6nhkos" path="res://scenes/gameplay/ui/noun-refresh-897165.png" id="9_vrg53"]
+[ext_resource type="Script" uid="uid://ba2x1up4j7727" path="res://scenes/gameplay/ui/restart.gd" id="10_oahny"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tlw26"]
+size = Vector3(0.5, 1, 0.5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ij1na"]
 font_size = 48
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vrg53"]
 
 [sub_resource type="Environment" id="Environment_hhg4g"]
 background_mode = 1
@@ -17,13 +27,14 @@ ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 2.0
 
 [node name="Main" type="Node"]
-script = ExtResource("4_kdkr1")
+script = ExtResource("1_tlw26")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("follow_node")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15, 0)
 fov = 10.0
 size = 10.0
-near = 7.884
+near = 10.0
+far = 30.0
 script = ExtResource("3_dyj7r")
 follow_node = NodePath("../Player")
 
@@ -36,7 +47,21 @@ gravity_scale = 5.0
 [node name="Level1" parent="Level" instance=ExtResource("4_n672w")]
 
 [node name="Level2" parent="Level" instance=ExtResource("5_n672w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+
+[node name="Level3" parent="Level" instance=ExtResource("6_xsaao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0)
+
+[node name="Win" type="Node3D" parent="Level/Level3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
+
+[node name="flag-green2" parent="Level/Level3/Win" instance=ExtResource("7_aurnk")]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="Level/Level3/Win"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Level3/Win/Area3D"]
+shape = SubResource("BoxShape3D_tlw26")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -46,7 +71,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Win" type="RichTextLabel" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -528.0
+offset_right = 540.0
+offset_bottom = 528.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/normal_font = ExtResource("8_tlw26")
+theme_override_font_sizes/normal_font_size = 96
+bbcode_enabled = true
+text = "[wave connected=0]YOU WIN![/wave]
+
+happy birthday bb! 
+congrats and let's go get a [rainbow sat=0.2 speed=0.2]sweet treat![/rainbow]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Label" type="Label" parent="UI"]
+visible = false
 layout_mode = 1
 offset_right = 1080.0
 offset_bottom = 132.0
@@ -67,6 +118,7 @@ label_settings = SubResource("LabelSettings_ij1na")
 autowrap_mode = 3
 
 [node name="Label3" type="Label" parent="UI"]
+visible = false
 layout_mode = 1
 offset_top = 120.0
 offset_right = 1080.0
@@ -75,6 +127,34 @@ size_flags_horizontal = 4
 text = "Colliding: "
 label_settings = SubResource("LabelSettings_ij1na")
 autowrap_mode = 3
+
+[node name="Button" type="Button" parent="UI"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -178.315
+offset_top = -178.285
+offset_right = -38.3149
+offset_bottom = -38.2849
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vrg53")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vrg53")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_vrg53")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_vrg53")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vrg53")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_vrg53")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vrg53")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vrg53")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vrg53")
+icon = ExtResource("9_vrg53")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("10_oahny")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hhg4g")

@@ -52,6 +52,7 @@ move_down={
 
 sensors/enable_accelerometer=true
 sensors/enable_gravity=true
+pointing/emulate_touch_from_mouse=true
 
 [physics]
 
