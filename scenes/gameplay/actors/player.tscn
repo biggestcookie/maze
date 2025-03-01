@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://qvi8ib4aj1q5" path="res://scenes/gameplay/actors/player.gd" id="1_phuyj"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_ns5hs"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_phuyj"]
 margin = 0.01
 radius = 0.2
+height = 0.4
 
 [node name="Player" type="RigidBody3D"]
 continuous_cd = true
@@ -13,7 +14,7 @@ angular_damp = 1.5
 script = ExtResource("1_phuyj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_ns5hs")
+shape = SubResource("CapsuleShape3D_phuyj")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 radius = 0.2
