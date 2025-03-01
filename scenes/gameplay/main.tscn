@@ -40,7 +40,6 @@ follow_node = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_kdkr1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13982, 0)
-gravity_scale = 5.0
 
 [node name="Level" type="Node3D" parent="."]
 
@@ -86,13 +85,15 @@ offset_bottom = 528.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
 theme_override_fonts/normal_font = ExtResource("8_tlw26")
 theme_override_font_sizes/normal_font_size = 96
 bbcode_enabled = true
 text = "[wave connected=0]YOU WIN![/wave]
 
 happy birthday bb! 
-congrats and let's go get a [rainbow sat=0.2 speed=0.2]sweet treat![/rainbow]"
+congrats and let's go get a [wave connected=0][rainbow sat=0.2 speed=0.2]sweet treat![/rainbow][/wave]"
 horizontal_alignment = 1
 vertical_alignment = 1
 

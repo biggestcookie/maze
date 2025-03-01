@@ -6,6 +6,12 @@ extends RigidBody3D
 const force_strength := 10
 
 var input := Vector2.ZERO
+var original_gravity: float
+var original_friction: float
+
+func _ready() -> void:
+	original_gravity = gravity_scale
+	original_friction = physics_material_override.friction
 
 func _process(_delta: float) -> void:
 	if OS.has_feature("mobile"):
@@ -24,7 +30,7 @@ func _physics_process(_delta: float) -> void:
 	var input_clipped := input
 	if OS.has_feature("mobile"):
 		input_clipped = (
-			input if input.length() > 0.2
+			input if input.length() > 0.15
 			else Vector2.ZERO
 		)
 	else:
@@ -40,5 +46,12 @@ func _physics_process(_delta: float) -> void:
 				input_clipped.y
 			) * force_strength
 		)
-	# ground_ray.position = position
-	# ground_ray.origin = global_transform.origin
+	if linear_velocity.length() < 0.1:
+		physics_material_override.friction = 0.01
+		if ground_ray.is_colliding():
+			gravity_scale = 0.5
+		else:
+			gravity_scale = original_gravity
+	else:
+		physics_material_override.friction = original_friction
+		gravity_scale = original_gravity

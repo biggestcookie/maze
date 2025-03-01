@@ -60,6 +60,9 @@ pointing/emulate_touch_from_mouse=true
 [physics]
 
 3d/physics_engine="Jolt Physics"
+jolt_physics_3d/simulation/velocity_steps=5
+jolt_physics_3d/queries/use_enhanced_internal_edge_removal=true
+3d/solver/solver_iterations=8
 common/physics_interpolation=true
 
 [rendering]
